@@ -1,0 +1,51 @@
+{% extends 'default.html' %}
+
+{% block title %} Ajout d'un Employe. {% endblock %}
+
+{% block content %}
+
+<h1> Ajouter un employe dans l'interface ci-dessous </h1>
+<div class="container">
+  {% if message=='error' %}
+  <p class="alert alert-danger"> SVP veuillez saisir tous les champs !</p>
+  {% elif message=='failure' %}
+  <p class="alert alert-warning">
+    Une erreur est survenue lors de l'Ajout de l'employe, bien vouloir se
+    rassurer que
+    le matricule que vous avez saisi n'a pas ete attribue a un autre employe.
+    Si l'erreur persiste, merci de contacter l'administrateur.
+  </p>
+  {% elif message=='success' %}
+  <p class="alert alert-success"> L'employe de matricule {{employe.matricule}} a
+    ete ajoute avec success.</p>
+  {% endif %}
+</div>
+<form action="{{url_for('add_employe')}}" method="post" class="container">
+  <div class="form-floating mb-3">
+    <input name="nom" type="text" class="form-control" id="Nom" placeholder>
+    <label for="floatingInput">Nom</label>
+  </div>
+  <div class="form-floating mb-3">
+    <input name="prenom" type="text" class="form-control" id="Prenom"
+      placeholder>
+    <label for="floatingPassword">Prenom</label>
+  </div>
+  <div class="form-floating mb-3">
+    <input name="matricule" type="text" class="form-control" id="Matricule"
+      placeholder>
+    <label for="floatingPassword">Matricule</label>
+  </div>
+  <div class="form-floating mb-3">
+    <input name="fonction" type="text" class="form-control" id="Fonction"
+      placeholder>
+    <label for="floatingPassword">Fonction</label>
+  </div>
+  <div class="form-floating mb-3">
+    <input name="departement" type="text" class="form-control" id="Departement"
+      placeholder>
+    <label for="floatingPassword">Departement</label>
+  </div>
+  <input type="Submit" value="Valider" class="btn btn-success">
+</form>
+
+{% endblock %}

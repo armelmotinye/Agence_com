@@ -1,0 +1,12 @@
+{% extends 'default.html' %}
+
+{% block title %} Home page. {% endblock %}
+
+{% block content %}
+
+<h1> Bienvenue dans notre page d'Accueil</h1>
+{% if 'username' in session %}
+<p> Bonjour session.nom_complet</p>
+{%endif%}
+
+{% endblock %}
